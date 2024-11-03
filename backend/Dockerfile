@@ -23,7 +23,7 @@ COPY . .
 
 # Create directory for certificates and download the certificate
 RUN mkdir -p /usr/local/share/ca-certificates && \
-    wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -O /usr/local/share/ca-certificates/global-bundle.pem
+    wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -O /usr/src/app/global-bundle.pem
 
 # Update CA certificates (optional, if required by your application)
 RUN update-ca-certificates
@@ -32,8 +32,8 @@ RUN update-ca-certificates
 ENV CERT_PATH=/usr/local/share/ca-certificates/global-bundle.pem
 
 # Create a non-root user
-RUN addgroup --system --gid 1001 nodejs \
-    && adduser --system --uid 1001 --ingroup nodejs nodeuser
+#RUN addgroup --system --gid 1001 nodejs \
+#    && adduser --system --uid 1001 --ingroup nodejs nodeuser
 
 # Set ownership of the application files
 #RUN chown -R nodeuser:nodejs /usr/src/app

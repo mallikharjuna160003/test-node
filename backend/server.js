@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
@@ -23,7 +24,6 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-/*
 app.get('/health', async (req, res) => {
   try {
     const dbState = mongoose.connection.readyState;
@@ -42,7 +42,7 @@ app.get('/health', async (req, res) => {
   }
 });
 
-
+/*
  --------------------------deployment------------------------------
 
 const __dirname1 = path.resolve();
